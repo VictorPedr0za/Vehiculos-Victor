@@ -1,5 +1,6 @@
 package co.edu.usbcali.vehiculosvictor.mapper;
 
+import co.edu.usbcali.vehiculosvictor.dto.request.CreateVehicleRequest;
 import co.edu.usbcali.vehiculosvictor.dto.response.GetVehicleResponse;
 import co.edu.usbcali.vehiculosvictor.model.Vehicle;
 
@@ -41,6 +42,23 @@ public class VehicleMapper {
 
       */
         return vehicles.stream().map(VehicleMapper::entityToGetVehicleResponse).toList();
+    }
+
+    public static Vehicle createVehicleRequestToEntity(CreateVehicleRequest createVehicleRequest){
+
+        /*Vehicle vehicle = new Vehicle();
+
+        / Asignar valores a los atributos del objeto Vehicle
+         .vehicleType(createVehicleRequest.getVehicleType())
+                .build();
+            / Retornar objeto Movie
+            return
+        */
+
+        return Vehicle.builder().brand(createVehicleRequest.getBrand())
+                .vehicleType(createVehicleRequest.getVehicleType())
+                .build();
+
     }
 
 }
